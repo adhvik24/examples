@@ -1,0 +1,35 @@
+{
+  "name": "vercel-examples-e2e-tests",
+  "version": "1.0.0",
+  "description": "End-to-end tests for Vercel examples repository",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report",
+    "test:blog": "playwright test tests/blog-functionality.spec.ts",
+    "test:api": "playwright test tests/express-api.spec.ts", 
+    "test:upload": "playwright test tests/image-upload.spec.ts",
+    "test:cron": "playwright test tests/cron-monitoring.spec.ts",
+    "test:integration": "playwright test tests/multi-app-integration.spec.ts",
+    "test:parallel": "playwright test --workers=4",
+    "test:browsers": "playwright test --project=chromium --project=firefox --project=webkit",
+    "install:browsers": "playwright install",
+    "serve:blog": "cd ../solutions/blog && pnpm build && pnpm start",
+    "serve:express": "cd ../solutions/express && vercel dev --listen 3001",
+    "serve:upload": "cd ../solutions/aws-s3-image-upload && pnpm build && pnpm start --port 3002",
+    "serve:cron": "cd ../solutions/cron && pnpm build && pnpm start --port 3003"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.8.0",
+    "typescript": "^5.2.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
+    "sharp": "^0.32.6"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

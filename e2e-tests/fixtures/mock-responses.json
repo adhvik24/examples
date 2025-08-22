@@ -1,0 +1,142 @@
+{
+  "express": {
+    "root": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/html"
+      },
+      "body": "<!DOCTYPE html><html><head><title>Express.js on Vercel</title></head><body><h1>Express.js on Vercel</h1><p>Simple Express.js + Vercel example</p></body></html>"
+    },
+    "data": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "message": "Hello from Express API",
+        "timestamp": "2024-01-15T10:30:00.000Z",
+        "environment": "test",
+        "version": "1.0.0"
+      }
+    },
+    "error": {
+      "status": 404,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "error": "Not Found",
+        "message": "The requested resource was not found",
+        "statusCode": 404
+      }
+    }
+  },
+  "upload": {
+    "success": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "success": true,
+        "message": "File uploaded successfully",
+        "data": {
+          "filename": "uploaded-file.jpg",
+          "size": 1024576,
+          "type": "image/jpeg",
+          "url": "https://example.com/uploads/uploaded-file.jpg",
+          "uploadId": "upload-123456789"
+        }
+      }
+    },
+    "error": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "success": false,
+        "error": "Invalid file type",
+        "message": "Only image files are allowed",
+        "allowedTypes": ["image/jpeg", "image/png", "image/gif", "image/webp"]
+      }
+    },
+    "tooLarge": {
+      "status": 413,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "success": false,
+        "error": "File too large",
+        "message": "File size exceeds maximum allowed size of 10MB",
+        "maxSize": 10485760
+      }
+    }
+  },
+  "cron": {
+    "jobs": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": [
+        {
+          "id": "daily-cleanup",
+          "name": "Daily Cleanup Job",
+          "schedule": "0 2 * * *",
+          "status": "active",
+          "lastRun": "2024-01-15T02:00:00Z",
+          "nextRun": "2024-01-16T02:00:00Z",
+          "lastDuration": 1250,
+          "successRate": 98.5
+        },
+        {
+          "id": "weekly-report",
+          "name": "Weekly Report Generation", 
+          "schedule": "0 9 * * 1",
+          "status": "active",
+          "lastRun": "2024-01-08T09:00:00Z",
+          "nextRun": "2024-01-15T09:00:00Z",
+          "lastDuration": 3420,
+          "successRate": 100.0
+        }
+      ]
+    },
+    "trigger": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "success": true,
+        "message": "Job triggered successfully",
+        "jobId": "daily-cleanup",
+        "executionId": "exec-123456789",
+        "estimatedDuration": 1500
+      }
+    }
+  },
+  "blog": {
+    "posts": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/html"
+      }
+    },
+    "rss": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/xml"
+      },
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><rss version=\"2.0\"><channel><title>Test Blog</title><description>A test blog for E2E testing</description></channel></rss>"
+    },
+    "sitemap": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/xml"
+      },
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"></urlset>"
+    }
+  }
+}

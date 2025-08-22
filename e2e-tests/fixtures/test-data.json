@@ -1,0 +1,118 @@
+{
+  "blog": {
+    "posts": [
+      {
+        "id": "test-post-1",
+        "title": "Test Blog Post 1",
+        "slug": "test-blog-post-1",
+        "excerpt": "This is a test blog post excerpt for E2E testing",
+        "content": "# Test Blog Post\n\nThis is the content of a test blog post used for end-to-end testing. It includes **bold text**, *italic text*, and [links](https://example.com).\n\n## Subheading\n\n- List item 1\n- List item 2\n- List item 3",
+        "publishedAt": "2024-01-15",
+        "author": "Test Author",
+        "tags": ["testing", "e2e", "blog"]
+      },
+      {
+        "id": "test-post-2", 
+        "title": "Another Test Post",
+        "slug": "another-test-post",
+        "excerpt": "Second test post for pagination and listing tests",
+        "content": "This is another test post to verify blog listing and pagination functionality.",
+        "publishedAt": "2024-01-10",
+        "author": "Test Author 2",
+        "tags": ["testing", "pagination"]
+      }
+    ]
+  },
+  "api": {
+    "endpoints": [
+      {
+        "path": "/api/data",
+        "method": "GET",
+        "expectedStatus": 200,
+        "expectedContentType": "application/json",
+        "expectedResponse": {
+          "message": "Hello from Express API",
+          "timestamp": "DYNAMIC"
+        }
+      },
+      {
+        "path": "/api/test",
+        "method": "POST", 
+        "payload": {
+          "name": "Test User",
+          "email": "test@example.com"
+        },
+        "expectedStatus": 200,
+        "expectedContentType": "application/json"
+      }
+    ]
+  },
+  "upload": {
+    "testFiles": [
+      {
+        "name": "test-image.jpg",
+        "type": "image/jpeg",
+        "size": 1024576,
+        "description": "Sample JPEG image for upload testing"
+      },
+      {
+        "name": "large-test-image.png",
+        "type": "image/png", 
+        "size": 5242880,
+        "description": "Large PNG image to test upload limits"
+      }
+    ],
+    "invalidFiles": [
+      {
+        "name": "test-document.pdf",
+        "type": "application/pdf",
+        "size": 2048,
+        "description": "PDF file to test type validation"
+      }
+    ]
+  },
+  "cron": {
+    "jobs": [
+      {
+        "id": "daily-cleanup",
+        "name": "Daily Cleanup Job",
+        "schedule": "0 2 * * *",
+        "status": "active",
+        "lastRun": "2024-01-15T02:00:00Z",
+        "nextRun": "2024-01-16T02:00:00Z"
+      },
+      {
+        "id": "weekly-report",
+        "name": "Weekly Report Generation",
+        "schedule": "0 9 * * 1", 
+        "status": "active",
+        "lastRun": "2024-01-08T09:00:00Z",
+        "nextRun": "2024-01-15T09:00:00Z"
+      }
+    ]
+  },
+  "users": [
+    {
+      "id": "test-user-1",
+      "email": "testuser1@example.com",
+      "username": "testuser1",
+      "displayName": "Test User One",
+      "role": "user"
+    },
+    {
+      "id": "test-admin",
+      "email": "admin@example.com", 
+      "username": "admin",
+      "displayName": "Test Admin",
+      "role": "admin"
+    }
+  ],
+  "performance": {
+    "thresholds": {
+      "pageLoad": 3000,
+      "apiResponse": 1000,
+      "imageUpload": 10000,
+      "cronExecution": 5000
+    }
+  }
+}
